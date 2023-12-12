@@ -1,0 +1,112 @@
+/*// BASE STYLES //*/
+html, body{
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  margin: 0;
+}
+.grass, .sky, .road{
+  position: relative;
+}
+.sky{
+  height: 40%;
+  background-color: skyblue;
+  background-image: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,.33))
+}
+.grass{
+  height: 30%;
+  background-color: seagreen;
+  background-image: linear-gradient(to top, rgba(255,255,255,0) 75%, rgba(255,255,255,.25))
+}
+.road{
+  height: 30%;
+  background: dimgrey;
+  box-sizing: border-box;
+  border-top: 10px solid grey;
+  border-bottom: 10px solid grey;
+  width: 100%;
+}
+/*// ELEMENTS TO ANIMATE //*/
+.mario{
+  position: absolute;
+  top: -50px;
+  left: -50%;
+  animation: mario-jump 5s linear infinite, drive linear infinite 5s;
+  z-index: 5;
+}
+.luigi{
+  position: absolute;
+  top: -20px;
+  left: -50px;
+  z-index: 55;
+  animation: drive linear infinite 5s;
+  animation-delay: 1s;
+}
+.cloud{
+  position: absolute;
+  top: 120px;
+  animation: cloud-move linear infinite 60s;
+}
+.cloud2{
+  position: absolute;
+  top: 20px;
+  max-width: 200px;
+  animation: cloud-move linear infinite reverse 20s;
+}
+.cloud,
+.cloud2{
+  
+}
+.lines{
+  box-sizing: border-box;
+  border: 5px dashed #fff;
+  height: 0px;
+  width: 6000px;
+  position: absolute;
+  top: 45%;
+  left: 0;
+  animation: lines-move linear .5s infinite;
+}
+/*// KEYFRAMES //*/
+@keyframes drive {
+  0%{
+    left: -20%
+  }
+  100%{
+    left: 120%
+  }
+}
+@keyframes mario-jump {
+  0%{
+    
+  }
+  48% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-40px);
+  }
+  52% {
+    transform: translateY(0);
+  }
+  100%{
+    
+  }
+}
+@keyframes cloud-move {
+  0%{
+    right: -15%;
+  }
+  
+  100%{
+    right: 115%;
+  }
+}
+@keyframes lines-move {
+  from{
+    left: 0;
+  }
+  to{
+    left: -120px;
+  }
+}
